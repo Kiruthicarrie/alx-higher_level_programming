@@ -1,0 +1,39 @@
+The ''5-text_indentation'' module
+============================
+
+Using ''text_indentation''
+---------------------
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+>>> text_indentation("Mae Wendi. Opera nae! Opera mae Wendi.")
+Mae Wendi.
+<BLANKLINE>
+Opera nae! Opera mae Wendi.
+<BLANKLINE>
+
+Check for when test is an integer
+>>> text_indentation(12)
+Traceback (most recent call last):
+TypeError: text must be a string
+
+Check for when text is a list of strings
+>>> text_indentation(["Wacha jokes", "Kijana"])
+Traceback (most recent call last):
+TypeError: text must be a string
+
+Check for when no argument is passed
+>>> text_indentation()
+Traceback (most recent call last):
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+Check for when empty string is passed
+>>> text_indentation("   ")
+
+>>> text_indentation("   Hello human. This must be very        ?      awkward: no")
+Hello human.
+<BLANKLINE>
+This must be very        ?
+<BLANKLINE>
+awkward:
+<BLANKLINE>
+no

@@ -1,0 +1,58 @@
+The ''2-matrix_divided'' module
+============================
+
+Using ''matrix_divided''
+---------------------
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Check for 2X3 matrix of integers
+>>> matrix_divided([[1,2,3],[4,5,6]], 2)
+[[0.5, 1.0, 1.5], [2.0, 2.5, 3.0]]
+
+Check for 2X3 matrix of integers divided by float
+>>> matrix_divided([[1,2,3],[4,5,6]], 2.0)
+[[0.5, 1.0, 1.5], [2.0, 2.5, 3.0]]
+
+Check for matrix that includes non-integers
+>>> matrix_divided([[1,2,3],['h','u','m']], 4)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Check for string instead of matrix
+>>> matrix_divided('Niko poa', 5)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Check for empty matrix
+>>> matrix_divided([], 5)
+Traceback (most recent call last):
+TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Check for non-rectangular matrix
+>>> matrix_divided([[1,2,3],[4,5]], 5)
+Traceback (most recent call last):
+TypeError: Each row of the matrix must have the same size
+
+Check for division of matrix by character
+>>> matrix_divided([[1,2,3],[4,5,6]], 'k')
+Traceback (most recent call last):
+TypeError: div must be a number
+
+Check for division by 0
+>>> matrix_divided([[1,2,3],[4,5,6]], 0)
+Traceback (most recent call last):
+ZeroDivisionError: division by zero
+
+Check for +ve infinity
+>>> matrix_divided([[1, 2, 3], [4, 5, 6]], float("inf"))
+[[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
+Check for missing one argument
+>>> matrix_divided([[1, 2, 3]])
+Traceback (most recent call last):
+TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+Check for both arguments missing
+>>> matrix_divided()
+Traceback (most recent call last):
+TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
